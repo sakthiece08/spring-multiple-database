@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  primary-db:
+    image: postgres:15.8-alpine
+    container_name: postgresql-primarydb-container
+    environment:
+      - POSTGRES_DB=postgresdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "15432:5432"
+  secondary-db:
+    image: mysql:8.0
+    container_name: mysql-secondarydb-container
+    environment:
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=mysql
+      - MYSQL_DATABASE=mysql-db
+      - MYSQL_ROOT_PASSWORD=mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql1
+volumes:
+  mysql-data:  # Define a named volume for MySQL data persistence
