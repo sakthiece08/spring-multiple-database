@@ -1,5 +1,13 @@
 ## Spring Multiple Database
+In this blog we will see about connecting to multiple Data sources from Spring Boot Application.
+Refer below Datasource diagram for different component of Spring Data source related components.
 
+There are 2 ways to obtain connection to Database in Spring Architecture:
+1) Obtaining Connection directly through DataSource object
+2) Having managed connection through Entity Manager, Transaction Manager beans where you can define the repositories
+configured for each of the Database you would be having in case of multiple Data sources
+
+    Refer to the classes PrimaryDatabaseConnection.java and SecondaryDatabaseConnection.java for more details
 
 ### Swagger Link to test the endpoints
 http://localhost:8081/swagger-ui/index.html
