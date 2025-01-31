@@ -9,6 +9,24 @@ configured for each of the Database you would be having in case of multiple Data
 
     Refer to the classes PrimaryDatabaseConnection.java and SecondaryDatabaseConnection.java for more details
 
+### Flyway Multi Tenant DB Migration
+  ```
+#Primary database connection
+spring.primary.datasource.url=jdbc:postgresql://localhost:15432/postgresdb
+spring.primary.datasource.username=postgres
+spring.primary.datasource.password=postgres
+spring.flyway.primary.locations=classpath:db/migration/postgresql
+
+#Secondary database connection
+spring.secondary.datasource.url=jdbc:mysql://localhost:3306/mysql-db
+spring.secondary.datasource.username=mysql
+spring.secondary.datasource.password=mysql
+spring.flyway.secondary.locations=classpath:db/migration/mysql
+
+# needs to be disabled for multi tenants db migrations, will be handled programatically
+spring.flyway.enabled=false
+  ```
+
 ### Swagger Link to test the endpoints
 http://localhost:8081/swagger-ui/index.html
 
